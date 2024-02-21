@@ -1,0 +1,54 @@
+#burger, [for=burger] {
+    display: none;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width:800px) {
+    [for=burger]{
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 20px;
+    }
+
+    [for=burger]::before{
+        content: '≡';
+        font-size: 30px;
+    }
+
+    nav{
+        display: none;
+        position: fixed;
+        top: 20px;
+        background-color: rgba(38, 142, 216, 0.727);
+        width: 80%;
+       
+    }
+
+    #burger:checked + label + nav {
+        display: block;
+        animation: show 0.5s;
+    }
+
+    #burger:checked + [for=burger]::before{
+        content: '✖';
+        font-size: 30px;
+    }
+
+    @keyframes show {
+        0%{
+            opacity: 0;
+        }
+
+        100%{
+            opacity: 1;
+        }
+
+
+        
+    }
+}
